@@ -126,19 +126,14 @@ function Body(props) {
                             <img className="card-image" src={anime.coverImage.large} alt="" />
                         </div>
                         <div className="col-sm-7 col-md-9">
-                            <div className="card-top">
-                                <p>Season: {anime.season} {anime.seasonYear}</p>
-                                <p>Aired on: {anime.startDate.day}/{anime.startDate.month}/{anime.startDate.year}</p>
-                                <p>Ended on: {anime.endDate.day}/{anime.endDate.month}/{anime.endDate.year}</p>
-                                <p>Episode duration: {anime.duration} minutes</p>
-                                <p>Number of Episodes: {anime.episodes}</p>
-                                <div className="tag-box">
-                                    {anime.tags.map((tag) => {
-                                        return (
-                                            <p className="badge badge-primary tag">{tag.name}</p>
-                                        )
-                                    })}
-                                </div>
+                            <div class="video_wrapper">
+                                <iframe
+                                    src={`https://www.youtube.com/embed/${anime.trailer.id}`}
+                                    frameBorder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                    title="Embedded youtube"
+                                />
                             </div>
                         </div>
                     </div>
@@ -146,12 +141,43 @@ function Body(props) {
             </div>
             <div className="content content-color">
                 <div className="card-body">
-                    <div>
-                        {anime.description.replace(/<br>$/, '')}
+                    <div className ="row">
+                        <div className="col-sm-5 col-md-3">
+                            <h1>Genres</h1>
+                            {anime.genres.map((genre) => {
+                                return (
+                                    <p className="badge badge-danger genre-tag">{genre}</p>
+                                )
+                            })}
+                        </div>
+                        <div className="col-sm-7 col-md-9">
+                            <h1>Description</h1>
+                            {anime.description.replace(/<br>$/, '')}
+                        </div>
                     </div>
-                    <div>
-                        {anime.description.replace(/<br>$/, '')}
+                    
+                </div>
+            </div>
+            <div className="content content-color">
+                <div className="card-body">
+                    <div className ="row">
+                        <div className="col-sm-5 col-md-3">
+                            
+                        </div>
+                        <div className="col-sm-7 col-md-9">
+                            <h1>Trailer</h1>
+                            <div class="video_wrapper">
+                                <iframe
+                                    src={`https://www.youtube.com/embed/${anime.trailer.id}`}
+                                    frameBorder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                    title="Embedded youtube"
+                                />
+                            </div>
+                        </div>
                     </div>
+                    
                 </div>
             </div>
             </>

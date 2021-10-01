@@ -13,6 +13,7 @@ body{
   justify-content: center;
   align-items: center;
   margin:auto;
+  height: 100%;
 }
 
 .content-color{
@@ -23,11 +24,13 @@ body{
 .card-body{
   width:70%;
   text-align: left;
+  height:100%;
 }
 
 .card-image{
   object-fit: cover;
   width:100%;
+  height:100%;
   max-width: 250px;
 }
 
@@ -88,7 +91,26 @@ body{
   font-size: 10px;
 }
 
-@media (min-width:0px) and (max-width:584px) {
+.genre-tag{
+  font-size:15px;
+  margin-right:5px;
+}
+
+.video_wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+}
+
+iframe{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+  
+
+@media (min-width:0px) and (max-width:576px) {
   .card-body{
     width: 100%;
   }
@@ -104,9 +126,13 @@ body{
   .card-title{
     font-size: 30px;
   }
+
+  .card-image{
+    display:none;
+  }
 }
 
-@media (min-width:584px) and (max-width:1024px) {
+@media (min-width:576px) and (max-width:1024px) {
   .card-body{
     width: 92%;
   }
@@ -120,6 +146,6 @@ body{
   }
 
   .card-title{
-    font-size: 50px;
+    font-size: 40px;
   }
 }
