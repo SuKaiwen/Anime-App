@@ -70,7 +70,7 @@ function Body(props) {
 
     // Define our query variables and values that will be used in the query request
     var variables = {
-        id: 16498
+        id: 20954
     };
 
     // Define the config we'll need for our Api request
@@ -177,7 +177,12 @@ function Body(props) {
                     </div>
                     <div className ="row">
                         <div className="col-sm-5 col-md-3">
-                            
+                            <h1>Tags</h1>
+                            {anime.tags.map((tag) => {
+                                return (
+                                    <p className="badge badge-primary tag">{tag.name}</p>
+                                )
+                            })}
                         </div>
                         <div className="col-sm-7 col-md-9">
                             <h1>Trailer</h1>

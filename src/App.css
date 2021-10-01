@@ -17,7 +17,7 @@ body{
 }
 
 .content-color{
-  background-color: #e4eed3;
+  background-color: #E0EEEE;
   color:#4C4C5E;
 }
 
@@ -134,7 +134,7 @@ iframe{
   }
 
   .card-title{
-    font-size: 30px;
+    font-size: 25px;
   }
 
   .card-image{
@@ -156,6 +156,6 @@ iframe{
   }
 
   .card-title{
-    font-size: 40px;
+    font-size: 30px;
   }
 }
