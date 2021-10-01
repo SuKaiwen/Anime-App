@@ -34,6 +34,10 @@ body{
   max-width: 250px;
 }
 
+.row{
+  margin-bottom:30px;
+}
+
 .card-top{
   padding:20px;
 }
@@ -84,7 +88,8 @@ body{
 }
 
 .card-subtitle{
-  font-size: 15px;
+  font-size: 25px;
+  font-weight: bold;
 }
 
 .card-text{
@@ -94,6 +99,11 @@ body{
 .genre-tag{
   font-size:15px;
   margin-right:5px;
+}
+
+.flex-row{
+  display:flex;
+  flex-direction: row;
 }
 
 .video_wrapper {

@@ -61,6 +61,9 @@ function Body(props) {
             thumbnail
         }
         siteUrl
+        rankings{
+            rank
+        }
     }
     }
     `;
@@ -117,10 +120,9 @@ function Body(props) {
                 <img className="banner-image" src={anime.bannerImage} alt = "" />
                 <div className="card-body">
                     <div className="card-head">
-                        <h1 className="card-title">{anime.title.romaji}</h1>
-                        <h1 className="card-title">{anime.meanScore}/100</h1>
+                        <h1 className="card-title">{anime.title.romaji} ({anime.format})</h1>
+                        <h1 className="card-title badge badge-success">{anime.averageScore}/100</h1>
                     </div>
-                    
                     <div class ="row">
                         <div className="col-sm-5 col-md-3 center">
                             <img className="card-image" src={anime.coverImage.large} alt="" />
@@ -142,6 +144,24 @@ function Body(props) {
             <div className="content content-color">
                 <div className="card-body">
                     <div className ="row">
+                        <div className="col-sm-3">
+                            <h1 className="card-subtitle">Aired on</h1>
+                            <p>{anime.startDate.day} {anime.startDate.month} {anime.startDate.year}</p>
+                        </div>
+                        <div className="col-sm-3">
+                            <h1 className="card-subtitle">Finished on</h1>
+                            <p>{anime.endDate.day} {anime.endDate.month} {anime.endDate.year}</p>
+                        </div>
+                        <div className="col-sm-3">
+                            <h1 className="card-subtitle">Episodes</h1>
+                            <p>{anime.episodes}</p>
+                        </div>
+                        <div className="col-sm-3">
+                            <h1 className="card-subtitle">Duration</h1>
+                            <p>{anime.duration} minutes</p>
+                        </div>
+                    </div>
+                    <div className ="row">
                         <div className="col-sm-5 col-md-3">
                             <h1>Genres</h1>
                             {anime.genres.map((genre) => {
@@ -155,11 +175,6 @@ function Body(props) {
                             {anime.description.replace(/<br>$/, '')}
                         </div>
                     </div>
-                    
-                </div>
-            </div>
-            <div className="content content-color">
-                <div className="card-body">
                     <div className ="row">
                         <div className="col-sm-5 col-md-3">
                             
@@ -177,9 +192,9 @@ function Body(props) {
                             </div>
                         </div>
                     </div>
-                    
                 </div>
             </div>
+                    
             </>
         ): (
             <div>
