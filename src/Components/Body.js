@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 function Body(props) {
 
@@ -55,6 +55,11 @@ function Body(props) {
             timeUntilAiring
             episode
         }
+        trailer {
+            id
+            site
+            thumbnail
+        }
         siteUrl
     }
     }
@@ -100,12 +105,63 @@ function Body(props) {
         alert('Error, check console');
         console.error(error);
     }
+
+    useEffect(() => {
+        getResponse()
+    }, [])
     
     return (
-        <div>
-            <button onClick={getResponse}>Get Anime</button>
-            <h1>{anime.id}</h1>
-        </div>
+        anime.length !== 0 ? (
+            <>
+            <div className="content">
+                <img className="banner-image" src={anime.bannerImage} alt = "" />
+                <div className="card-body">
+                    <div className="card-head">
+                        <h1 className="card-title">{anime.title.romaji}</h1>
+                        <h1 className="card-title">{anime.meanScore}/100</h1>
+                    </div>
+                    
+                    <div class ="row">
+                        <div className="col-sm-5 col-md-3 center">
+                            <img className="card-image" src={anime.coverImage.large} alt="" />
+                        </div>
+                        <div className="col-sm-7 col-md-9">
+                            <div className="card-top">
+                                <p>Season: {anime.season} {anime.seasonYear}</p>
+                                <p>Aired on: {anime.startDate.day}/{anime.startDate.month}/{anime.startDate.year}</p>
+                                <p>Ended on: {anime.endDate.day}/{anime.endDate.month}/{anime.endDate.year}</p>
+                                <p>Episode duration: {anime.duration} minutes</p>
+                                <p>Number of Episodes: {anime.episodes}</p>
+                                <div className="tag-box">
+                                    {anime.tags.map((tag) => {
+                                        return (
+                                            <p className="badge badge-primary tag">{tag.name}</p>
+                                        )
+                                    })}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="content content-color">
+                <div className="card-body">
+                    <div>
+                        {anime.description.replace(/<br>$/, '')}
+                    </div>
+                    <div>
+                        {anime.description.replace(/<br>$/, '')}
+                    </div>
+                </div>
+            </div>
+            </>
+        ): (
+            <div>
+                <h1>No anime selected</h1>
+                <button onClick={getResponse}>Get Anime</button>
+            </div>
+        )
+        
     );
 }
 

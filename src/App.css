@@ -2,37 +2,124 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+  font-family: Open Sans;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.content{
+  width:100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin:auto;
+}
+
+.content-color{
+  background-color: #e4eed3;
+  color:#4C4C5E;
+}
+
+.card-body{
+  width:70%;
+  text-align: left;
+}
+
+.card-image{
+  object-fit: cover;
+  width:100%;
+  max-width: 250px;
+}
+
+.card-top{
+  padding:20px;
+}
+
+.tag-box{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.center{
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  text-align: center;
 }
 
-.App-link {
-  color: #61dafb;
+.title-section{
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  vertical-align: text-bottom;
+  padding: 10px;
+  width: 70%;
+  justify-content: center;
+  height:100px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.tag{
+  font-size:12px;
+  margin-right:3px;
+}
+
+.banner-image{
+  width:100%;
+  object-fit: cover;
+  height:300px;
+}
+
+.card-head{
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+}
+
+.card-title{
+  font-size:40px;
+  font-weight: bold;
+}
+
+.card-subtitle{
+  font-size: 15px;
+}
+
+.card-text{
+  font-size: 10px;
+}
+
+@media (min-width:0px) and (max-width:584px) {
+  .card-body{
+    width: 100%;
   }
-  to {
-    transform: rotate(360deg);
+
+  .title-section{
+    width: 100%;
+  }
+
+  .card-top{
+    padding:10px 0px 10px 0px;
+  }
+
+  .card-title{
+    font-size: 30px;
+  }
+}
+
+@media (min-width:584px) and (max-width:1024px) {
+  .card-body{
+    width: 92%;
+  }
+
+  .title-section{
+    width: 92%;
+  }
+  
+  .card-top{
+    padding:5px;
+  }
+
+  .card-title{
+    font-size: 50px;
   }
 }
